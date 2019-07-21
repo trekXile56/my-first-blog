@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/f154d53295.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Literata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Consumuse</title>
+    </head>
+    <body>
+        <section id="header-post">
+            <div class="heading-post">
+                <h1><a href="{% url 'post_list' %}" >Consumuse</a></h1>
+            </div>  
+        </section>
+
+        <section id="content1">
+            <div class="content-container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

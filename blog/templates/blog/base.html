@@ -1,26 +1,57 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
     <head>
-        <title>Django Girls blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script><script src="https://kit.fontawesome.com/f154d53295.js"></script>
+
+        <link href='https://fonts.googleapis.com/css?family=Literata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Consumuse</title>
     </head>
     <body>
-      <div class="page-header">
-        {% if user.is_authenticated %}
-          <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        {% endif %}
-        <h1><a href="/">Consumuse</a></h1>
-      </div>
-      <div class="content container">
-        <div class="row">
-          <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
-          </div>
-        </div>
-      </div>
+
+        <section id="header">
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="fas fa-bars"></span></button>
+                    <ul class="dropdown-menu">
+                        {% for post in posts %}
+                            <li class="dropdown-menu-content"><h3><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h3></li>
+                        {% endfor %}
+                    </ul>
+                </div>  
+            {% endif %}
+        </section>
+
+        <section id="intro" >
+            <div class="page-title" >
+                <h1><a href="/">Consumuse</a></h1>
+                <h4>present "me" to the future "him"</h4>
+            </div>
+        </section>
+
+        <section id="content">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </section>
+        
     </body>
 </html>
