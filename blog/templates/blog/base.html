@@ -26,37 +26,45 @@
         
         <section id="header">
             <div class="container-fluid">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="fas fa-bars"></span></button>
-                        <ul class="dropdown-menu">
-                            {% for post in posts %}
-                                <li class="dropdown-menu-content"><h3><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h3></li>
-                            {% endfor %}
-                        </ul>
-                    </div>  
-                {% endif %}
+                <div class="row">
+                    <div class="col">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="fas fa-bars"></span></button>
+                                <ul class="dropdown-menu">
+                                    {% for post in posts %}
+                                        <li class="dropdown-menu-content"><h3><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h3></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>  
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </section>
+
         <section id="intro" >
             <div class="container-fluid">
-                
-                    <div class="page-title" >
-                        <h1><a href="/">Consumuse</a></h1>
-                        <h4>present "me" to the future "him"</h4>
-                    </div>
-            </div>
-        </section>
-        <section id="content">
-            <div class="container-fluid">
-                
-                    <div class="row">
-                        <div class="col-md-8">
-                            {% block content %}
-                            {% endblock %}
+                <div class="row">
+                    <div class="col">
+                        <div class="page-title" >
+                            <h1><a href="/">Consumuse</a></h1>
+                            <h4>present "me" to the future "him"</h4>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
             </div>
         </section>
         
