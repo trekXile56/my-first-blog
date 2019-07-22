@@ -45,7 +45,11 @@ h1, h2, h3, h4 {
 	min-height: 0px;
 	min-width:400px;
 }
-
+.container-fluid{
+	padding-left: 0rem;
+  	padding-right: 0rem;
+  	overflow: hidden;
+}
 #intro{
 	background: #151515 url(../images/back.jpg) no-repeat center bottom;
 	background-size: cover;

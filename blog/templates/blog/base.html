@@ -18,40 +18,43 @@
         <link href='https://fonts.googleapis.com/css?family=Literata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Consumuse</title>
     </head>
     <body>
-
-        <section id="header">
-            {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="fas fa-bars"></span></button>
-                    <ul class="dropdown-menu">
-                        {% for post in posts %}
-                            <li class="dropdown-menu-content"><h3><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h3></li>
-                        {% endfor %}
-                    </ul>
-                </div>  
-            {% endif %}
-        </section>
-
-        <section id="intro" >
-            <div class="page-title" >
-                <h1><a href="/">Consumuse</a></h1>
-                <h4>present "me" to the future "him"</h4>
-            </div>
-        </section>
-
-        <section id="content">
-            <div class="row">
-                <div class="col-md-8">
-                    {% block content %}
-                    {% endblock %}
+        <div class="container-fluid">
+            <section id="header">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="fas fa-bars"></span></button>
+                        <ul class="dropdown-menu">
+                            {% for post in posts %}
+                                <li class="dropdown-menu-content"><h3><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h3></li>
+                            {% endfor %}
+                        </ul>
+                    </div>  
+                {% endif %}
+            </section>
+        </div>
+        <div class="container-fluid">
+            <section id="intro" >
+                <div class="page-title" >
+                    <h1><a href="/">Consumuse</a></h1>
+                    <h4>present "me" to the future "him"</h4>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
+        <div class="container-fluid">
+            <section id="content">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </section>
+        </div>
         
     </body>
 </html>
