@@ -3,6 +3,9 @@
 
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Consumuse</title>
         <!-- Latest compiled and minified CSS -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -17,13 +20,12 @@
 
         <link href='https://fonts.googleapis.com/css?family=Literata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Consumuse</title>
+        
     </head>
     <body>
-        <div class="container-fluid">
-            <section id="header">
+        
+        <section id="header">
+            <div class="container-fluid">
                 {% if user.is_authenticated %}
                     <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
                     <div class="dropdown">
@@ -35,26 +37,28 @@
                         </ul>
                     </div>  
                 {% endif %}
-            </section>
-        </div>
-        <div class="container-fluid">
-            <section id="intro" >
-                <div class="page-title" >
-                    <h1><a href="/">Consumuse</a></h1>
-                    <h4>present "me" to the future "him"</h4>
-                </div>
-            </section>
-        </div>
-        <div class="container-fluid">
-            <section id="content">
-                <div class="row">
-                    <div class="col-md-8">
-                        {% block content %}
-                        {% endblock %}
+            </div>
+        </section>
+        <section id="intro" >
+            <div class="container-fluid">
+                
+                    <div class="page-title" >
+                        <h1><a href="/">Consumuse</a></h1>
+                        <h4>present "me" to the future "him"</h4>
                     </div>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
+        <section id="content">
+            <div class="container-fluid">
+                
+                    <div class="row">
+                        <div class="col-md-8">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                    </div>
+            </div>
+        </section>
         
     </body>
 </html>
