@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Consumuse</title>
         <!-- Latest compiled and minified CSS -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,44 +23,55 @@
         
     </head>
     <body>
-        
-        <section id="header">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
+        <div class="container-fluid C1">
+            <header id="header">
+                <div class="row R1">
+                    <div class="col-4 CO1">
+                        {% if user.is_authenticated %}
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-bars"></span></button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                {% for post in posts %}
+                                    <a class="dropdown-item" href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>  
+
+                    <div class="col-4">
+                    </div>
+
+                    <div class="col-4 CO2">
                         {% if user.is_authenticated %}
                             <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="fas fa-bars"></span></button>
-                                <ul class="dropdown-menu">
-                                    {% for post in posts %}
-                                        <li class="dropdown-menu-content"><h3><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h3></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>  
                         {% endif %}
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="intro" >
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="page-title" >
-                            <h1><a href="/">Consumuse</a></h1>
-                            <h4>present "me" to the future "him"</h4>
-                        </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="container-fluid C2">
+            <div class="row R2">
+                <div class=col-3>
+
+                </div>
+                <div class="col-6 CO3">
+                    <div class="page-title" >
+                        <h1><a href="/">Consumuse</a></h1>
+                        <h4>present "me" to the future "him"</h4>
                     </div>
                 </div>
+                <div class="col-3">
+
+                </div>
             </div>
-        </section>
+        </div>
+        
 
         <section id="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-xs-12">
                         {% block content %}
                         {% endblock %}
                     </div>
