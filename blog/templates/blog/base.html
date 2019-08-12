@@ -24,60 +24,47 @@
     </head>
     <body>
         <div class="container-fluid C1">
-            <header id="header">
-                <div class="row R1">
-                    <div class="col-4 CO1">
-                        {% if user.is_authenticated %}
-                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-bars"></span></button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                {% for post in posts %}
-                                    <a class="dropdown-item" href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>  
+            <div class="row R1">
+                <div class="col-6 CO1">
+                    {% if user.is_authenticated %}
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-bars"></span></button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Home</a>
+                            <a class="dropdown-item" href="{% url 'post_list'%}">Posts</a>
+                            <a class="dropdown-item" href="#">Gallery</a>
+                            <a class="dropdown-item" href="#">Muses</a>
+                            <a class="dropdown-item" href="#">Contact</a>
+                        </div>
+                    {% endif %}
+                </div>  
 
-                    <div class="col-4">
-                    </div>
-
-                    <div class="col-4 CO2">
-                        {% if user.is_authenticated %}
-                            <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
-                        {% endif %}
-                    </div>
-
+                <div class="col-6 CO2">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}" class="top-add"><span class="fas fa-plus"></span></a>
+                    {% endif %}
                 </div>
-            </header>
+            </div> 
         </div>
 
-        <div class="container-fluid C2">
-            <div class="row R2">
-                <div class=col-3>
-
-                </div>
-                <div class="col-6 CO3">
-                    <div class="page-title" >
-                        <h1><a href="/">Consumuse</a></h1>
-                        <h4>present "me" to the future "him"</h4>
-                    </div>
-                </div>
-                <div class="col-3">
-
-                </div>
+        <div class="titleintro">
+            <div class="page-title" >
+                <h1><a href="/">Consumuse</a></h1>
+                <h4>present "me" to the future "him"</h4>
             </div>
         </div>
-        
 
-        <section id="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12">
-                        {% block content %}
-                        {% endblock %}
-                    </div>
-                </div>
+        <div class="intro">
+            <div class="introcontainer">
+                <h1 class=introhead>Intro</h1>
+                <p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
-        </section>
-        
+        </div>   
+
+        <footer class="blog-footer">
+            <p>Blog built by Rajat Shenoy</p>
+            <p>Consumuse
+            </p>
+        </footer>
+
     </body>
 </html>

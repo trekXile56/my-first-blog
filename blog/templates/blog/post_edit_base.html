@@ -3,30 +3,40 @@
 
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Consumuse</title>
+        <!-- Latest compiled and minified CSS -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/f154d53295.js"></script>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script><script src="https://kit.fontawesome.com/f154d53295.js"></script>
+
         <link href='https://fonts.googleapis.com/css?family=Literata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Consumuse</title>
+        
     </head>
     <body>
-        <section id="header-post">
+        <div class="header-post">
             <div class="heading-post">
-                <h1><a href="{% url 'post_list' %}" >Consumuse</a></h1>
+                <h1><a href="{% url 'post_base' %}" >Consumuse</a></h1>
             </div>  
-        </section>
+        </div>
 
-        <section id="content1">
-            <div class="content-container">
-                <div class="row">
-                    <div class="col-md-8">
-                        {% block content %}
-                        {% endblock %}
-                    </div>
+        <div class="container-fluid C3">
+            <div class="row R2">
+                <div class="col-md-8 col-xs-12">
+                    {% block content %}
+                    {% endblock %}
                 </div>
             </div>
-        </section>
+        </div>
+        
     </body>
 </html>
